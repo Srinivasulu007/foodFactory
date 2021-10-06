@@ -1,1 +1,28 @@
-<p>login works!</p>
+<section class="login-form">
+    <h3 class="text-center mb-3">Sign In</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <input type="text" class="form-control" formControlName="username" placeholder="username" autocomplete="off">
+            <div class="text-danger" *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">
+                <span class="text-danger" *ngIf="loginForm.get('username').errors.required ">
+                    username is required
+                </span>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <input type="password" class="form-control" formControlName="password" placeholder="password" autocomplete="off">
+            <div class="text-danger" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                <span class="text-danger" *ngIf="loginForm.get('password').errors.required ">
+                    password is required
+                </span>
+            </div>
+        </div>
+        <p class="text-end cursor-pointer" routerLink="/forgot">Forgot Password?</p>
+        <div class="buttons d-flex justify-content-center text-center">
+            <button type="submit" class="btn btn-primary mr-2" >Login</button>
+            <button type="button" class="btn" routerLink="/register">Register</button>
+        </div>
+    </form>
+</section>
+
+        

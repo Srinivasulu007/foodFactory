@@ -12,6 +12,9 @@ import { ForgotPasswordComponent } from './authenticate/forgot-password/forgot-p
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ForgotPasswordComponent,
     HomepageComponent,
     UserProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

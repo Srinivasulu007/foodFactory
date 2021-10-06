@@ -6,6 +6,7 @@ import { LoginComponent } from './authenticate/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
@@ -13,7 +14,9 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'forgot', component:ForgotPasswordComponent},
   {path:'home', component:HomepageComponent},
-  {path:'profile', component:UserProfileComponent},
+  {path:'profile/:id/:name', component:UserProfileComponent},
+  {path:'dashboard', component:DashboardComponent},
+  {path:'screening', loadChildren:() => import('./screening/screening.module').then(m => m.ScreeningModule)},
   {path:'**', component:NotFoundComponent}
 ];
 

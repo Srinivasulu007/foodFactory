@@ -1,1 +1,65 @@
-<p>register works!</p>
+<section class="register-form">
+    <h3 class="text-center mb-3">Registration</h3>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <input type="text" class="form-control" formControlName="username" placeholder="Enter username" autocomplete="off">
+          <div class="text-danger" *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched">
+              <span class="text-danger" *ngIf="signupForm.get('username').errors.required ">
+                  username is required
+              </span>
+          </div>
+      </div>
+      <div class="form-group mb-3">
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter Email" autocomplete="off">
+        <div class="text-danger" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+            <span class="text-danger" *ngIf="signupForm.get('email').errors.required ">
+                email is required
+            </span>
+            <span class="text-danger" *ngIf="signupForm.get('email').errors?.email ">
+              enter valid email
+          </span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <input type="tel" class="form-control" (keypress)="keyPress($event)" formControlName="mobile" placeholder="Enter Mobilenumber" autocomplete="off" onlyNumber>
+        <div class="text-danger" *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').touched">
+            <span class="text-danger" *ngIf="signupForm.get('mobile').errors.required ">
+                mobile number is required
+            </span>
+            <span class="text-danger" *ngIf="signupForm.get('mobile').errors.pattern ">
+              Invalid mobile number<br>mobile number must start with 9 or 7 or 8
+           </span><br>
+           <span class="text-danger" *ngIf="signupForm.get('mobile').errors?.minlength ">
+            mobile number atleast 10 numbers
+         </span>
+        </div>
+      </div>
+        <div class="form-group mb-3">
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter Password" autocomplete="off">
+            <div class="text-danger" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+                <span class="text-danger" *ngIf="signupForm.get('password').errors.required ">
+                    password is required
+                </span>
+            </div>
+        </div>
+      
+      <div class="form-group mb-3">
+        <div class="form-check">
+            <input class="form-check-input" formControlName="acceptTerms"  type="checkbox" value="" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+                Accept Terms & Conditions
+            </label>
+          </div>
+        <div class="text-danger" *ngIf="signupForm.get('acceptTerms').invalid && signupForm.get('acceptTerms').touched">
+            <span class="text-danger" *ngIf="signupForm.get('acceptTerms').errors.required ">
+                accept terms and conditions
+            </span>
+        </div>
+      </div>
+    
+      <div class="buttons d-flex justify-content-center text-center">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+      <p class="text-center mt-2">Have An Account? <span class="login" routerLink="/login">Login</span></p>
+    </form>                 
+</section>

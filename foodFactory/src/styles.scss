@@ -9,3 +9,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color:$primary-color;
     font-size: $extra-small-font;
 }
+.login-form, .register-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+}
+.cursor-pointer {
+    cursor: pointer;
+}
