@@ -1,1 +1,57 @@
-<p>servicehistory works!</p>
+<div class="filters mt-3">
+    <form>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="formGroup">
+                   <select class="form-select">
+                       <option selected>Status</option>
+                       <option>One</option>
+                       <option>tw0</option>
+                   </select>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+               <select class="form-select" formControlName="units">
+                   <option selected>Business Unit</option>
+                   <option value="1">One</option>
+                   <option value="2">two</option>
+                 </select>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <button type="button" class="btn btn-primary w-25">Filter</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<table class="table table-borderless mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Units</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>address</th>
+            <th>Id</th>
+            <th>Edited By</th>
+            <th>Edited Date</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tableData">
+           <td><a [routerLink]="['userdetails',item.id]">{{item.Name | titlecase}}</a></td>
+           <td>{{item.Units}}</td>
+           <td>{{item.Type}}</td>
+           <td>{{item.Date}}</td>
+           <td>{{item.Address}}</td>
+           <td>{{item.Id}}</td>
+           <td>{{item.ModifiedBy}}</td>
+           <td>{{item.ModifiedDate}}</td>
+           <td>{{item.Status}}</td>
+        </tr>
+    </tbody>
+</table>
+<pre>
+    {{tableData | json}}
+</pre>

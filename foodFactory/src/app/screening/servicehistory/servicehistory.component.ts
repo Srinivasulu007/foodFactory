@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-servicehistory',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicehistoryComponent implements OnInit {
 
-  constructor() { }
+  tableData:any;
+  constructor(private api:ApiService, private route:ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getData();
+    
   }
+  getData() {
+    this.tableData = this.api.getData();
+  }
+
+ 
 
 }

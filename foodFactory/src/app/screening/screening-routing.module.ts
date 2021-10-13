@@ -4,6 +4,7 @@ import { IndividualComponent } from './individual/individual.component';
 import { MultipleComponent } from './multiple/multiple.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { ServicehistoryComponent } from './servicehistory/servicehistory.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 
 const routes: Routes = [
   // {path:'', pathMatch:'full',
@@ -12,6 +13,7 @@ const routes: Routes = [
         {path:'multiple', component:MultipleComponent},
         {path:'organization', component:OrganizationComponent},
         {path:'history', component:ServicehistoryComponent},
+        {path:'userdetails/:id', component:UserdetailsComponent}
       // ]
   // }
 ];

@@ -6,18 +6,26 @@ import { IndividualComponent } from './individual/individual.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { MultipleComponent } from './multiple/multiple.component';
 import { ServicehistoryComponent } from './servicehistory/servicehistory.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { InputsModule } from "@progress/kendo-angular-inputs";
 
 @NgModule({
   declarations: [
     IndividualComponent,
     OrganizationComponent,
     MultipleComponent,
-    ServicehistoryComponent
+    ServicehistoryComponent,
+    UserdetailsComponent
   ],
   imports: [
     CommonModule,
-    ScreeningRoutingModule
+    ScreeningRoutingModule,
+    ReactiveFormsModule,
+    ButtonsModule,
+    InputsModule
+
   ],
   exports:[]
 })

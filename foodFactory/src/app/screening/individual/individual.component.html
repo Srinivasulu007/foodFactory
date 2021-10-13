@@ -1,1 +1,189 @@
-<p>individual works!</p>
+<form [formGroup]="individualData" (ngSubmit)="onSubmit()">
+  <div class="card m-2">
+    <div class="card-header">Featured</div>
+    <div class="card-body">
+     <div class="row">
+         <div class="col-lg-4 col-md-6 col-12">
+             <div class="formGroup">
+                <select class="form-select" formControlName="business">
+                    <option selected>Business Segment</option>
+                    <option>One</option>
+                    <option>tw0</option>
+                </select>
+                <div class="text-danger" *ngIf="individualData.get('business').invalid && individualData.get('business').touched">
+                    <span class="text-danger" *ngIf="individualData.get('business').errors.required ">
+                        business segment is required
+                    </span>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+            <select class="form-select" formControlName="units">
+                <option selected>Business Unit</option>
+                <option value="1">One</option>
+                <option value="2">two</option>
+              </select>
+              <div class="text-danger" *ngIf="individualData.get('units').invalid && individualData.get('units').touched">
+                <span class="text-danger" *ngIf="individualData.get('units').errors.required ">
+                    units segment is required
+                </span>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6 col-12">
+             <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Standard</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">High</label>
+              </div>
+         </div>
+     </div>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">Personal Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="firstname" placeholder="firstname" autocomplete="off">
+                    <div class="text-danger" *ngIf="individualData.get('firstname').invalid && individualData.get('firstname').touched">
+                        <span class="text-danger" *ngIf="individualData.get('firstname').errors.required ">
+                            firstname is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="middlename" placeholder="middlename" autocomplete="off">
+                    <div class="text-danger" *ngIf="individualData.get('middlename').invalid && individualData.get('middlename').touched">
+                        <span class="text-danger" *ngIf="individualData.get('middlename').errors.required ">
+                            middlename is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="lastname" placeholder="lastname" autocomplete="off">
+                    <div class="text-danger" *ngIf="individualData.get('lastname').invalid && individualData.get('lastname').touched">
+                        <span class="text-danger" *ngIf="individualData.get('lastname').errors.required ">
+                            lastname is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="date" class="form-control" formControlName="date" placeholder="select date" autocomplete="off">
+                    <div class="text-danger" *ngIf="individualData.get('date').invalid && individualData.get('date').touched">
+                        <span class="text-danger" *ngIf="individualData.get('date').errors.required ">
+                            date is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <select class="form-select" formControlName="gender">
+                        <option selected>Select Gender</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">Address</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="address" placeholder="address" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="address2" placeholder="address2" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="address3" placeholder="address3" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <input type="text" class="form-control" formControlName="area" placeholder="area" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <select class="form-select" formControlName="city">
+                        <option selected>City</option>
+                        <option value="1">hyderabad</option>
+                        <option value="2">Bangalore </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <select class="form-select" formControlName="state">
+                        <option selected> State</option>
+                        <option value="1">Hyderabad</option>
+                        <option value="2">Banglore</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="card m-2">
+    <div class="card-header">Issue Id Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <select class="form-select" formControlName="selectid">
+                        <option selected>Select ID type</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                    </select>
+                    <div class="text-danger" *ngIf="individualData.get('selectid').invalid && individualData.get('selectid').touched">
+                        <span class="text-danger" *ngIf="individualData.get('selectid').errors.required ">
+                            selectid is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="form-group mb-3">
+                    <select class="form-select" formControlName="insurance">
+                        <option selected>Country Insurance</option>
+                        <option value="1">Hyderabad</option>
+                        <option value="2">Banglore</option>
+                    </select>
+                    <div class="text-danger" *ngIf="individualData.get('insurance').invalid && individualData.get('insurance').touched">
+                        <span class="text-danger" *ngIf="individualData.get('insurance').errors.required ">
+                            insurance is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="submit-button text-end m-2">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
