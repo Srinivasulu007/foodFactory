@@ -19,3 +19,54 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cursor-pointer {
     cursor: pointer;
 }
+
+
+app-dialog {
+    /* modals are hidden by default */
+    display: none;
+    .dialog-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      max-width: 500px;
+      margin: auto;
+  
+      .dialog-modal-body {
+        text-align: center;
+        position: relative;
+        background-color: #0e0e0e;
+        border-radius: 18px;
+        text-align: left;
+        width: 100%;
+        .closeMd {
+          position: absolute;
+          right: 9px;
+          top: 9px;
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+          z-index: 9;
+          border: 1px solid;
+          border-radius: 50%;
+          padding: 5px;
+        }
+      }
+    }
+    .dialog-modal-background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: 0.75;
+      z-index: 900;
+    }
+  }

@@ -20,8 +20,8 @@
          <div class="col-lg-4 col-md-6 col-12">
             <select class="form-select" formControlName="units">
                 <option selected>Business Unit</option>
-                <option value="1">One</option>
-                <option value="2">two</option>
+                <option >One</option>
+                <option >two</option>
               </select>
               <div class="text-danger" *ngIf="individualData.get('units').invalid && individualData.get('units').touched">
                 <span class="text-danger" *ngIf="individualData.get('units').errors.required ">
@@ -91,8 +91,8 @@
                 <div class="form-group mb-3">
                     <select class="form-select" formControlName="gender">
                         <option selected>Select Gender</option>
-                        <option value="1">Female</option>
-                        <option value="2">Male</option>
+                        <option >Female</option>
+                        <option >Male</option>
                     </select>
                 </div>
             </div>
@@ -128,8 +128,8 @@
                 <div class="form-group mb-3">
                     <select class="form-select" formControlName="city">
                         <option selected>City</option>
-                        <option value="1">hyderabad</option>
-                        <option value="2">Bangalore </option>
+                        <option >hyderabad</option>
+                        <option >Bangalore </option>
                     </select>
                 </div>
             </div>
@@ -137,8 +137,8 @@
                 <div class="form-group mb-3">
                     <select class="form-select" formControlName="state">
                         <option selected> State</option>
-                        <option value="1">Hyderabad</option>
-                        <option value="2">Banglore</option>
+                        <option >Hyderabad</option>
+                        <option >Banglore</option>
                     </select>
                 </div>
             </div>
@@ -154,8 +154,8 @@
                 <div class="form-group mb-3">
                     <select class="form-select" formControlName="selectid">
                         <option selected>Select ID type</option>
-                        <option value="1">Female</option>
-                        <option value="2">Male</option>
+                        <option >Female</option>
+                        <option >Male</option>
                     </select>
                     <div class="text-danger" *ngIf="individualData.get('selectid').invalid && individualData.get('selectid').touched">
                         <span class="text-danger" *ngIf="individualData.get('selectid').errors.required ">
@@ -168,8 +168,8 @@
                 <div class="form-group mb-3">
                     <select class="form-select" formControlName="insurance">
                         <option selected>Country Insurance</option>
-                        <option value="1">Hyderabad</option>
-                        <option value="2">Banglore</option>
+                        <option >Hyderabad</option>
+                        <option >Banglore</option>
                     </select>
                     <div class="text-danger" *ngIf="individualData.get('insurance').invalid && individualData.get('insurance').touched">
                         <span class="text-danger" *ngIf="individualData.get('insurance').errors.required ">
@@ -184,6 +184,6 @@
 
 
   <div class="submit-button text-end m-2">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="w-25" kendoButton [primary]="true">Submit</button>
   </div>
 </form>

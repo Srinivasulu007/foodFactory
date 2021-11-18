@@ -1,1 +1,184 @@
-<p>organization works!</p>
+<form [formGroup]="organizationForm">
+<div class="card m-2">
+    <div class="card-header">Organization Screening</div>
+    <div class="card-body">
+       <div class="row">
+           <div class="col-lg-4 col-md-6 col-12">
+            <kendo-formfield>
+                <kendo-floatinglabel text="Business Segment*" class="w-100">
+                    <kendo-dropdownlist [data]="data" formControlName="segment" (selectionChange)="selectionChange($event,data)">
+                    </kendo-dropdownlist>
+                </kendo-floatinglabel>
+                <kendo-formerror>Business Segment is required</kendo-formerror>
+            </kendo-formfield>
+           </div>
+           <div class="col-lg-4 col-md-6 col-12">
+            <kendo-formfield>
+                <kendo-floatinglabel text="Business Unit*" class="w-100">
+                    <kendo-dropdownlist [data]="unit" formControlName="businessunit">
+                    </kendo-dropdownlist>
+                </kendo-floatinglabel>
+                <kendo-formerror>Business Unit is required</kendo-formerror>
+            </kendo-formfield>
+           </div>
+           <div class="col-lg-4 col-md-6 col-12 pt-4">
+                <label class="k-label">Standard</label>
+                <input type="radio" formControlName="standard" value="Standard" kendoRadioButton/>
+                <label class="k-label">High</label>
+                <input type="radio" formControlName="standard" value="High" kendoRadioButton/>
+           </div>
+           <div class="col-lg-4 col-md-6 col-12">
+            <kendo-formfield>
+                <kendo-floatinglabel text="Request Type" class="w-100">
+                    <kendo-dropdownlist [data]="request" formControlName="request"></kendo-dropdownlist>
+                </kendo-floatinglabel>
+            </kendo-formfield>
+           </div>
+       </div>
+    </div>
+</div>
+
+<div class="card m-2">
+    <div class="card-header">Organization Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Enter First Name*" class="w-100">
+                        <input kendoTextBox formControlName="firstname" name="firstName" required/>
+                    </kendo-floatinglabel>
+                    <kendo-formerror>first name is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Enter Middle Name" class="w-100">
+                        <input kendoTextBox formControlName="middlename" name="middlename" />
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Enter Last Name*" class="w-100">
+                        <input kendoTextBox formControlName="lastname" name="lastname" />
+                    </kendo-floatinglabel>
+                    <kendo-formerror>lastname is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Enter date*" class="w-100">
+                        <kendo-datepicker  placeholder="" name="date" formControlName="date" required>
+                        </kendo-datepicker>
+                    </kendo-floatinglabel>
+                    <kendo-formerror>Date is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Gender" class="w-100">
+                        <kendo-dropdownlist [data]="gender" formControlName="gender">
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Country" class="w-100">
+                        <kendo-dropdownlist [data]="country" formControlName="countryselect">
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card m-2" formGroupName="address">
+    <div class="card-header">Address</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Address Line 1" class="w-100">
+                        <input kendoTextBox formControlName="address1" name="address1" />
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Address Line 2" class="w-100">
+                        <input kendoTextBox formControlName="address2" name="address2" />
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+            <kendo-formfield>   
+                <kendo-floatinglabel text="City" class="w-100">
+                    <input kendoTextBox formControlName="city" name="city" />
+                </kendo-floatinglabel>
+            </kendo-formfield>  
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <kendo-formfield>
+                <kendo-floatinglabel text="State" class="w-100">
+                    <input kendoTextBox formControlName="state" name="state" />
+                </kendo-floatinglabel>
+              </kendo-formfield> 
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <kendo-formfield>
+                <kendo-floatinglabel text="Zipcode" class="w-100">
+                    <input kendoTextBox formControlName="zipcode" name="zipcode" />
+                </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Country*" class="w-100">
+                        <kendo-dropdownlist [data]="country" formControlName="country" required>
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                    <kendo-formerror>Country is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card m-2">
+    <div class="card-header">Government ID Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield> 
+                    <kendo-floatinglabel text="Government Id Number*" class="w-100">
+                        <input kendoTextBox formControlName="idnumber" name="idnumber" required />
+                    </kendo-floatinglabel>
+                    <kendo-formerror>Id number is required</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="ID Type" class="w-100">
+                        <kendo-dropdownlist [data]="idtype" formControlName="idtype">
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                </kendo-formfield>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Country of issuance" class="w-100">
+                        <kendo-dropdownlist [data]="issuance" formControlName="issuance" >
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                </kendo-formfield>    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="button text-end">
+    <button kendoButton class="w-25" (click)="onSubmit()" [primary]="true">Submit</button>
+</div>
+</form>

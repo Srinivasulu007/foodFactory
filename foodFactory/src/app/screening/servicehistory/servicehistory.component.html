@@ -1,24 +1,26 @@
 <div class="filters mt-3">
-    <form>
+    <form [formGroup]="filterForm">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="formGroup">
-                   <select class="form-select">
-                       <option selected>Status</option>
-                       <option>One</option>
-                       <option>tw0</option>
-                   </select>
-               </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <kendo-formfield>
+                        <kendo-floatinglabel text="Request Type" class="w-100">
+                            <kendo-dropdownlist [data]="type" formControlName="type" required>
+                            </kendo-dropdownlist>
+                        </kendo-floatinglabel>
+                </kendo-formfield>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-               <select class="form-select" formControlName="units">
-                   <option selected>Business Unit</option>
-                   <option value="1">One</option>
-                   <option value="2">two</option>
-                 </select>
+            <div class="col-lg-3 col-md-6 col-12">
+                <kendo-formfield>
+                    <kendo-floatinglabel text="Request Duration" class="w-100">
+                        <kendo-dropdownlist [data]="duration" formControlName="duration" required>
+                        </kendo-dropdownlist>
+                    </kendo-floatinglabel>
+                </kendo-formfield>    
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <button type="button" class="btn btn-primary w-25">Filter</button>
+            <div class="col-lg-6 col-md-6 col-12 d-flex align-items-end">
+                <button kendoButton class="mx-2 w-25" [disabled]="filterForm.invalid" (click)="filterData()" [primary]="true">Filter</button>
+                <button kendoButton class="mx-2 w-25" (click)="reset()" [primary]="true">Reset Filter</button>
+                <button kendoButton class="w-25" (click)="openModel('ConfirmDialog')" >Export</button>
             </div>
         </div>
     </form>
@@ -39,19 +41,40 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of tableData">
-           <td><a [routerLink]="['userdetails',item.id]">{{item.Name | titlecase}}</a></td>
-           <td>{{item.Units}}</td>
-           <td>{{item.Type}}</td>
-           <td>{{item.Date}}</td>
-           <td>{{item.Address}}</td>
-           <td>{{item.Id}}</td>
-           <td>{{item.ModifiedBy}}</td>
-           <td>{{item.ModifiedDate}}</td>
-           <td>{{item.Status}}</td>
+        <tr *ngFor="let item of userData">
+           <td><a [routerLink]="['userdetails',item.id]">{{item.firstname}}</a></td>
+           <td>{{item.units}}</td>
+           <td>{{item.type}}</td>
+           <td>{{item.date}}</td>
+           <td>{{item.address}}</td>
+           <td>{{item._id}}</td>
+           <td>{{item.city}}</td>
+           <td>{{item.state}}</td>
+           <td>{{item.selectid}}</td>
+           <td>{{item.insurance}}</td>
         </tr>
     </tbody>
 </table>
-<pre>
-    {{tableData | json}}
-</pre>
+
+<app-dialog id="ConfirmDialog">
+<h1>dhghfghhhfhfhg</h1>
+<button (click)="closeModel('ConfirmDialog')">Close</button>
+</app-dialog>
+
+<!-- business:['',Validators.required],
+units:['',Validators.required],
+firstname:['',Validators.required],
+middlename:[''],
+lastname:['',Validators.required],
+standard:[''],
+high:[''],
+date:[''],
+gender:[''],
+address:[''],
+address2:[''],
+address3:[''],
+area:[''],
+city:[''],
+state:[''],
+selectid:['',Validators.required],
+insurance:['',Validators.required] -->

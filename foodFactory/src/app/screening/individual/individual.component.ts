@@ -54,17 +54,21 @@ export class IndividualComponent implements OnInit {
       this.router.navigate(['/screening/history'])
     }
 
-    this.api.postData(this.individualData.value).pipe(first()).subscribe ( { next: () => {
-      this.alert.success('Submit Successful', {keepAfterRouteChange:true});
-    },
-    error: error => {
-      this.alert.error(error);
-    }
+    // this.api.postData(this.individualData.value).pipe(first()).subscribe ( { next: () => {
+    //   this.alert.success('Submit Successful', {keepAfterRouteChange:true});
+    // },
+    // error: error => {
+    //   this.alert.error(error);
+    // }
+
+    this.api.postData(this.individualData.value).subscribe (data => {
+      this.userData = data;
+      console.log("api post data",this.userData)
+    });
     
       // data => {
       // this.userData = data;
       // console.log("api data",this.userData)
-    })
   }
 
 }

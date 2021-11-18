@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
@@ -10,11 +11,14 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm : FormGroup | any;
   isSubmit:boolean = false;
-  constructor(private fb:FormBuilder,private router:Router) { }
+  userCredintials : any;
+  constructor(private fb:FormBuilder,private router:Router, private auth:AuthService) { 
+
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group ({
-      username : ['',Validators.required],
+      email : ['',Validators.required],
       password : ['',Validators.required],
     })
   }
@@ -23,8 +27,10 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.isSubmit = true;
     if(this.loginForm.valid) {
-      const loginDetails = JSON.stringify(this.loginForm.value);
-      localStorage.setItem('loginValues',loginDetails);
+      this.auth.login(this.loginForm.value).subscribe( data => {
+        this.userCredintials = data;
+        this.auth.setLocalStorage('loginValues',this.userCredintials.token);
+      })
       this.router.navigate(['/home'])
     }
   }

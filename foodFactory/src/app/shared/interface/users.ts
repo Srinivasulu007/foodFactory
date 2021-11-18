@@ -15,5 +15,6 @@ export interface Users {
     city:string,
     state:string,
     selectid:number,
-    insurance:string
+    insurance:string,
+    status:string
 }

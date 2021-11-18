@@ -34,7 +34,9 @@ export class ApiService {
   ]  
 
 
-  apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  // apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+  apiUrl = "http://localhost:9000/api/user";
   constructor(private http:HttpClient) { }
 
   handleError(error:HttpErrorResponse) {
@@ -55,18 +57,27 @@ export class ApiService {
 
   //api for post
   postData(post:any): Observable<any> {
-    return this.http.post (`${this.apiUrl}`,JSON.stringify(post)).pipe( retry(1),catchError(this.handleError))
+    return this.http.post(`${this.apiUrl}/createUser`,post)
   }
+
+  // getSampleData(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}`)
+  //     .pipe(retry(1), 
+  //       catchError(this.handleError));
+  // }
 
   //get Data
   getData() {
-    return this.history;
+    // return this.history;
+    return this.http.get(`${this.apiUrl}/getUserDetails`)
   }
 
     // API for userDetails shown
     userDetails(id:number) {
      return this.http.get(`${this.apiUrl}`+id)
     }
+
+
 
 }
 

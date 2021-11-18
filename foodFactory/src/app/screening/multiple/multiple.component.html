@@ -4,20 +4,15 @@
         <div class="example-wrap">
             <form class="k-form" >
                 <fieldset class="k-form-fieldset">
-                    <legend class="k-form-legend">User Details</legend>
-                    <kendo-formfield>
-                        <input formControlName="firstName" kendoTextBox #firstName required/>
+                    <kendo-label [for]="firstName" text="First Name"></kendo-label>
+                    <input
+                      formControlName="firstName"
+                      kendoTextBox
+                      #firstName
+                      required
+                    />
 
-                        <kendo-formhint>Your first name</kendo-formhint>
-                        <kendo-formerror>Error: First name is required</kendo-formerror>
-                    </kendo-formfield>
-
-                    <kendo-formfield>
-                        <input formControlName="lastName" kendoTextBox #lastName required/>
-
-                        <kendo-formhint>Your last name</kendo-formhint>
-                        <kendo-formerror>Error: Last name is required</kendo-formerror>
-                    </kendo-formfield>
+                  
 
                 </fieldset>
             </form>

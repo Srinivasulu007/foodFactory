@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="signedIn">
         <li class="nav-item">
           <a class="nav-link active" routerLink="/home">Home</a>
         </li>
@@ -25,7 +25,7 @@
           </ul>
         </li>
       </ul>
-      <div class="d-flex">
+      <div class="d-flex" *ngIf="!signedIn">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" routerLink="login">Login</a>
@@ -35,6 +35,62 @@
           </li>
         </ul>
       </div>
+      <div class="d-flex" *ngIf="signedIn">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
+
+
+<!-- <kendo-appbar position="top">
+  <kendo-appbar-section class="title">
+    <h1 class="title">Page Title</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="appbar-items">
+    <ul>
+      <li><a  routerLink="/home">Home</a></li>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><span>Screening</span></li>
+      <li><span>Onboarding</span></li>
+      <li><span>Archives</span></li>
+    </ul>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+  <kendo-appbar-section class="user-actions">
+    <kendo-badge-container>
+      <p class="user-name mb-0">{{username}}</p>
+    </kendo-badge-container>
+    <span class="k-appbar-separator"></span>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <button
+      class="k-button k-flat overflow-button"
+      #anchor
+      (click)="onToggle()"
+    >
+      <kendo-icon name="menu"></kendo-icon>
+    </button>
+    <kendo-popup [anchor]="{nativeElement:anchor}" *ngIf="show" [margin]="margin">
+      <div class="content">
+        <ul>
+          <li><span>Home</span></li>
+          <li><span>Dashboard</span></li>
+          <li><span>Screening</span></li>
+          <li><span>Onboarding</span></li>
+          <li><span>Archives</span></li>
+        </ul>
+      </div>
+    </kendo-popup>
+    <p class="role mb-0">{{userRole}}</p>
+  </kendo-appbar-section>
+</kendo-appbar> -->

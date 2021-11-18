@@ -2,10 +2,10 @@
     <h3 class="text-center mb-3">Sign In</h3>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group mb-3">
-            <input type="text" class="form-control" formControlName="username" placeholder="username" autocomplete="off">
-            <div class="text-danger" *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched">
-                <span class="text-danger" *ngIf="loginForm.get('username').errors.required ">
-                    username is required
+            <input type="text" class="form-control" formControlName="email" placeholder="email" autocomplete="off">
+            <div class="text-danger" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                <span class="text-danger" *ngIf="loginForm.get('email').errors.required ">
+                    email is required
                 </span>
             </div>
         </div>
