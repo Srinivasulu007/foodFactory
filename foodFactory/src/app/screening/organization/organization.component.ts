@@ -54,8 +54,10 @@ export class OrganizationComponent implements OnInit {
 
 
   selectionChange(event:any,item:any) {
+    console.log(event)
     if(event) {
       this.organizationForm.get('businessunit').enable()
+    if(event =='Commercial') this.unit=['srinu','venki']
     }
   }
 

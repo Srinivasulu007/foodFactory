@@ -15,17 +15,17 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-  request = request.clone({
-    setHeaders: {
-      'Cache-control' : 'no-cache'
-    }
-  });
-
-    // let currentUser = this.auth.
-    // if(currentUser && currentUser.token) {
+    request = request.clone({
+      setHeaders: {
+        'Cache-control' : 'no-cache',
+        'Srinu':'hello'
+      }
+    });
+    //   let token = localStorage.getItem('loginValues')
+    // if(token) {
     //   request = request.clone ({
     //     setHeaders : {
-    //       Authorization:`Bearer ${currentUser.token}`
+    //       Authorization:`Bearer ${token}`
     //     }
     //   })
     // }

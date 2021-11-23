@@ -21,12 +21,16 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`,approver)
   }
 
+  // test(){
+  //   console.log('ffh')
+  //   return this.http.post(`${this.apiUrl}/register`,{})
+  // }
  setLocalStorage(key:any,val:any) {
-    window.localStorage.setItem(key, val);
+    localStorage.setItem(key, val);
   }
 
   getLocalStorage(key:any) {
-    window.localStorage.getItem(key);
+    localStorage.getItem(key);
   }
 
 

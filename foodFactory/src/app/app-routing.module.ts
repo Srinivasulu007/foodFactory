@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:'profile/:id/:name', component:UserProfileComponent},
   {path:'dashboard', component:DashboardComponent},
   {path:'screening', loadChildren:() => import('./screening/screening.module').then(m => m.ScreeningModule)},
+  {path:'admin',loadChildren:() => import('./admin/admin.module').then(m => m.AdminModule)},
   {path:'**', component:NotFoundComponent}
 ];
 

@@ -37,6 +37,7 @@ export class ApiService {
   // apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   apiUrl = "http://localhost:9000/api/user";
+  
   constructor(private http:HttpClient) { }
 
   handleError(error:HttpErrorResponse) {
